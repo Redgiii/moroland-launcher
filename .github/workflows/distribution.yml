@@ -1,0 +1,49 @@
+name: Publish distribution
+
+# Builds distribution.json (list of official download URLs + hashes) and publishes it on GitHub Pages.
+# No mod file is stored or uploaded: only metadata and the modpack's own config files.
+on:
+  push:
+    branches: [main]
+    paths: ['pack/**', 'tools/**', '.github/workflows/distribution.yml']
+  schedule:
+    - cron: '17 4 * * *'   # daily, picks up mirror/URL changes
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: pages
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - run: npm ci --ignore-scripts
+      - run: npm run test:tools
+      - name: Generate distribution
+        env:
+          CF_API_KEY: ${{ secrets.CF_API_KEY }}
+        run: node tools/build-distribution.mjs --out site
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v4
