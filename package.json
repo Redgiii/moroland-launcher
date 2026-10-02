@@ -19,7 +19,7 @@
     "dist:linux": "npm run dist -- -l",
     "lint": "eslint .",
     "distro": "node tools/build-distribution.mjs",
-    "test:tools": "node --test tools/test/"
+    "test:tools": "node --test \"tools/test/*.test.mjs\""
   },
   "engines": {
     "node": "22.x.x"

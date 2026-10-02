@@ -1,0 +1,277 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "acte3_c2_confins"
+	group: "3100000000000010"
+	icon: "minecraft:elytra"
+	id: "3100000000000002"
+	images: [ ]
+	order_index: 1
+	quest_links: [ ]
+	quests: [
+		{
+			description: [
+				"Le Dragon vaincu, les §5Confins§r s'ouvrent."
+				""
+				"Emprunte un §bportail de passerelle§r (End Gateway) vers l'End extérieur."
+				""
+				"(Coche la quête une fois passé par une passerelle.)"
+			]
+			id: "3102000000000101"
+			rewards: [
+				{
+					id: "3102000000000401"
+					xp: 100
+					type: "xp"
+				}
+				{
+					id: "3102000000000402"
+					item: "minecraft:ender_pearl"
+					count: 16
+					type: "item"
+				}
+			]
+			tasks: [{
+				id: "3102000000000201"
+				title: "J'ai emprunté une passerelle"
+				type: "checkmark"
+			}]
+			title: "La Passerelle"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["3102000000000101"]
+			description: [
+				"§9Quête longue.§r"
+				""
+				"Explore les §bîles extérieures§r du Vide, à la recherche des structures perdues."
+			]
+			id: "3102000000000102"
+			rewards: [
+				{
+					id: "3102000000000403"
+					xp: 120
+					type: "xp"
+				}
+				{
+					id: "3102000000000404"
+					item: "minecraft:purpur_block"
+					count: 32
+					type: "item"
+				}
+				{
+					id: "3102000000000405"
+					item: "minecraft:chorus_fruit"
+					count: 16
+					type: "item"
+				}
+			]
+			tasks: [{
+				id: "3102000000000202"
+				title: "J'ai exploré les îles extérieures"
+				type: "checkmark"
+			}]
+			title: "Les Îles du Vide"
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["3102000000000102"]
+			description: [
+				"Trouve une §bCité de l'End§r (End City), forteresse dressée dans le Vide."
+				""
+				"(Coche la quête une fois une cité trouvée.)"
+			]
+			id: "3102000000000103"
+			rewards: [
+				{
+					id: "3102000000000406"
+					xp: 80
+					type: "xp"
+				}
+				{
+					id: "3102000000000407"
+					item: "minecraft:purpur_pillar"
+					count: 16
+					type: "item"
+				}
+				{
+					id: "3102000000000408"
+					item: "minecraft:end_rod"
+					count: 8
+					type: "item"
+				}
+			]
+			tasks: [{
+				id: "3102000000000203"
+				title: "J'ai trouvé une Cité de l'End"
+				type: "checkmark"
+			}]
+			title: "Une Cité du Vide"
+			x: 4.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["3102000000000103"]
+			description: [
+				"Atteins un §bVaisseau de l'End§r (End Ship) amarré près d'une cité."
+				""
+				"(Coche la quête une fois à bord.)"
+			]
+			id: "3102000000000104"
+			rewards: [
+				{
+					id: "3102000000000409"
+					xp: 80
+					type: "xp"
+				}
+				{
+					id: "310200000000040A"
+					item: "minecraft:popped_chorus_fruit"
+					count: 16
+					type: "item"
+				}
+			]
+			tasks: [{
+				id: "3102000000000204"
+				title: "J'ai atteint un Vaisseau de l'End"
+				type: "checkmark"
+			}]
+			title: "Le Vaisseau"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["3102000000000104"]
+			description: ["Obtiens une §bElytra§r dans la salle au trésor du Vaisseau : la liberté du vol."]
+			id: "3102000000000105"
+			rewards: [
+				{
+					id: "310200000000040B"
+					xp: 150
+					type: "xp"
+				}
+				{
+					id: "310200000000040C"
+					item: "minecraft:firework_rocket"
+					count: 64
+					type: "item"
+				}
+			]
+			tasks: [{
+				id: "3102000000000205"
+				item: "minecraft:elytra"
+				type: "item"
+			}]
+			title: "Les Ailes"
+			x: 8.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["3102000000000104"]
+			description: ["Récolte des §bcoquilles de Shulker§r et fabrique une §bShulker Box§r pour transporter ton butin."]
+			id: "3102000000000106"
+			rewards: [
+				{
+					id: "310200000000040D"
+					xp: 80
+					type: "xp"
+				}
+				{
+					id: "310200000000040E"
+					item: "minecraft:shulker_box"
+					count: 1
+					type: "item"
+				}
+			]
+			tasks: [{
+				count: 2L
+				id: "3102000000000206"
+				item: "minecraft:shulker_shell"
+				type: "item"
+			}]
+			title: "Coquilles du Vide"
+			x: 8.0d
+			y: 2.0d
+		}
+		{
+			dependencies: [
+				"3102000000000105"
+				"3102000000000106"
+			]
+			description: [
+				"§4Quête difficile.§r"
+				""
+				"Deviens un vrai §5Voyageur du Vide§r : possède une §bElytra§r, des §bfusées§r et une §bShulker Box§r remplie de ressources de l'End."
+				""
+				"Palier costaud — mais explorer toutes les cités et maximiser ton équipement reste pour un Acte final."
+			]
+			id: "3102000000000107"
+			rewards: [
+				{
+					id: "310200000000040F"
+					xp: 400
+					type: "xp"
+				}
+				{
+					auto: "enabled"
+					command: "tellraw @a [\"\",{\"text\":\"⬥ [Acte III] \",\"color\":\"dark_purple\",\"bold\":true},{\"selector\":\"@p\",\"color\":\"aqua\"},{\"text\":\" a exploré les Confins — Chapitre II terminé !\",\"color\":\"gold\"}]"
+					elevated: true
+					id: "3102000000000420"
+					title: "Annonce"
+					type: "command"
+				}
+				{
+					id: "3102000000000410"
+					item: "minecraft:shulker_box"
+					count: 2
+					type: "item"
+				}
+				{
+					id: "3102000000000411"
+					item: "minecraft:firework_rocket"
+					count: 64
+					type: "item"
+				}
+				{
+					id: "3102000000000412"
+					item: "minecraft:netherite_ingot"
+					count: 1
+					type: "item"
+				}
+				{
+					id: "3102000000000413"
+					item: "minecraft:enchanted_golden_apple"
+					count: 1
+					type: "item"
+				}
+			]
+			shape: "gear"
+			size: 1.5d
+			subtitle: "Un palier, pas la complétion de l'End"
+			tasks: [
+				{
+					id: "3102000000000207"
+					item: "minecraft:elytra"
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "3102000000000208"
+					item: "minecraft:firework_rocket"
+					type: "item"
+				}
+				{
+					id: "3102000000000209"
+					item: "minecraft:shulker_box"
+					type: "item"
+				}
+			]
+			title: "Le Voyageur du Vide"
+			x: 10.0d
+			y: 0.0d
+		}
+	]
+	title: "Chapitre II — Les Confins"
+}

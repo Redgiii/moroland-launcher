@@ -1,0 +1,13 @@
+
+#.
+#Client-only settings for Modern Train Parts
+[client]
+	#.
+	#The spacing between wire hangers
+	#Range: > 1
+	wire_hanger_spacing = 2
+	#.
+	#When lowered the bulkstorages can end lower than a full block depending by how much its lowered
+	#Range: -1.0 ~ 0.0
+	bulkstorage_randomheight_offset = 0.0
+

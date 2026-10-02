@@ -1,0 +1,280 @@
+{
+	default_hide_dependency_lines: false
+	default_quest_shape: ""
+	filename: "acte3_c3_maitrise"
+	group: "3100000000000010"
+	icon: "minecraft:end_crystal"
+	id: "3100000000000003"
+	images: [ ]
+	order_index: 2
+	quest_links: [ ]
+	quests: [
+		{
+			description: ["Apprivoise le Vide. Récolte et cuisine du §bFruit de Chorus§r — utile pour la téléportation aléatoire."]
+			id: "3103000000000101"
+			rewards: [
+				{
+					id: "3103000000000401"
+					xp: 80
+					type: "xp"
+				}
+				{
+					id: "3103000000000402"
+					item: "minecraft:chorus_flower"
+					count: 8
+					type: "item"
+				}
+			]
+			tasks: [{
+				count: 16L
+				id: "3103000000000201"
+				item: "minecraft:chorus_fruit"
+				type: "item"
+			}]
+			title: "Fruit de Chorus"
+			x: 0.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["3103000000000101"]
+			description: ["Les §bEndermen§r règnent sur les Confins. Affronte-les pour t'imposer dans le Vide."]
+			id: "3103000000000102"
+			rewards: [
+				{
+					id: "3103000000000403"
+					xp: 100
+					type: "xp"
+				}
+				{
+					id: "3103000000000404"
+					item: "minecraft:ender_pearl"
+					count: 8
+					type: "item"
+				}
+			]
+			tasks: [{
+				entity: "minecraft:enderman"
+				id: "3103000000000202"
+				type: "kill"
+				value: 10L
+			}]
+			title: "Les Endermen des Confins"
+			x: 2.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["3103000000000102"]
+			description: [
+				"§9Quête longue.§r"
+				""
+				"Explore le End refait : visite §bplusieurs biomes§r et zones du Vide."
+			]
+			id: "3103000000000103"
+			rewards: [
+				{
+					id: "3103000000000405"
+					xp: 120
+					type: "xp"
+				}
+				{
+					id: "3103000000000406"
+					item: "minecraft:end_rod"
+					count: 16
+					type: "item"
+				}
+				{
+					id: "3103000000000407"
+					item: "minecraft:purpur_block"
+					count: 16
+					type: "item"
+				}
+			]
+			tasks: [{
+				id: "3103000000000203"
+				title: "J'ai exploré plusieurs biomes du End"
+				type: "checkmark"
+			}]
+			title: "Explorateur du Vide"
+			x: 4.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["3103000000000103"]
+			description: ["Bâtis un §bavant-poste§r fonctionnel dans le Vide. Rassemble des §bbriques d'End Stone§r pour tes fondations."]
+			id: "3103000000000104"
+			rewards: [
+				{
+					id: "3103000000000408"
+					xp: 80
+					type: "xp"
+				}
+				{
+					id: "3103000000000409"
+					item: "minecraft:shulker_box"
+					count: 1
+					type: "item"
+				}
+				{
+					id: "310300000000040A"
+					item: "minecraft:end_stone_bricks"
+					count: 32
+					type: "item"
+				}
+			]
+			tasks: [{
+				count: 16L
+				id: "3103000000000204"
+				item: "minecraft:end_stone_bricks"
+				type: "item"
+			}]
+			title: "Avant-poste du Vide"
+			x: 6.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["3103000000000104"]
+			description: ["Obtiens une §bTête de Dragon§r, décorant fièrement la proue d'un Vaisseau de l'End."]
+			id: "3103000000000105"
+			rewards: [
+				{
+					id: "310300000000040B"
+					xp: 120
+					type: "xp"
+				}
+				{
+					id: "310300000000040C"
+					item: "minecraft:enchanted_golden_apple"
+					count: 1
+					type: "item"
+				}
+				{
+					id: "310300000000040D"
+					item: "minecraft:end_rod"
+					count: 8
+					type: "item"
+				}
+			]
+			tasks: [{
+				id: "3103000000000205"
+				item: "minecraft:dragon_head"
+				type: "item"
+			}]
+			title: "Tête de Dragon"
+			x: 8.0d
+			y: 0.0d
+		}
+		{
+			dependencies: ["3103000000000104"]
+			description: [
+				"§7Quête optionnelle.§r"
+				""
+				"Mets en place un déplacement rapide : constitue une réserve de §bPerles de l'Ender§r."
+			]
+			id: "3103000000000106"
+			rewards: [
+				{
+					id: "310300000000040E"
+					xp: 60
+					type: "xp"
+				}
+				{
+					id: "310300000000040F"
+					item: "minecraft:ender_chest"
+					count: 1
+					type: "item"
+				}
+			]
+			tasks: [{
+				count: 16L
+				id: "3103000000000206"
+				item: "minecraft:ender_pearl"
+				type: "item"
+			}]
+			title: "Réseau de Perles"
+			x: 6.0d
+			y: 2.0d
+		}
+		{
+			dependencies: ["3103000000000105"]
+			description: [
+				"§4Quête difficile.§r"
+				""
+				"Deviens le §5Maître du Vide§r : avant-poste établi, et réserves solides de ressources de l'End — §bcristal§r, §bfruit de chorus soufflé§r, §bobsidienne§r et §bcoquilles de Shulker§r."
+				""
+				"Gros palier d'installation — mais pas la complétion absolue de l'End."
+			]
+			id: "3103000000000107"
+			rewards: [
+				{
+					id: "3103000000000410"
+					xp: 500
+					type: "xp"
+				}
+				{
+					auto: "enabled"
+					command: "tellraw @a [\"\",{\"text\":\"⬥ [Acte III] \",\"color\":\"dark_purple\",\"bold\":true},{\"selector\":\"@p\",\"color\":\"aqua\"},{\"text\":\" est devenu Maître du Vide — Acte III terminé !\",\"color\":\"gold\"}]"
+					elevated: true
+					id: "3103000000000420"
+					title: "Annonce"
+					type: "command"
+				}
+				{
+					id: "3103000000000411"
+					item: "minecraft:shulker_box"
+					count: 3
+					type: "item"
+				}
+				{
+					id: "3103000000000412"
+					item: "minecraft:beacon"
+					count: 1
+					type: "item"
+				}
+				{
+					id: "3103000000000413"
+					item: "minecraft:netherite_ingot"
+					count: 2
+					type: "item"
+				}
+				{
+					id: "3103000000000414"
+					item: "minecraft:enchanted_golden_apple"
+					count: 2
+					type: "item"
+				}
+			]
+			shape: "gear"
+			size: 1.5d
+			subtitle: "L'installation, pas la fin de l'aventure"
+			tasks: [
+				{
+					id: "3103000000000207"
+					item: "minecraft:end_crystal"
+					type: "item"
+				}
+				{
+					count: 8L
+					id: "3103000000000208"
+					item: "minecraft:popped_chorus_fruit"
+					type: "item"
+				}
+				{
+					count: 16L
+					id: "3103000000000209"
+					item: "minecraft:obsidian"
+					type: "item"
+				}
+				{
+					count: 4L
+					id: "310300000000020A"
+					item: "minecraft:shulker_shell"
+					type: "item"
+				}
+			]
+			title: "Le Maître du Vide"
+			x: 10.0d
+			y: 0.0d
+		}
+	]
+	title: "Chapitre III — Maîtrise du Vide"
+}

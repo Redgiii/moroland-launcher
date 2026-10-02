@@ -1,0 +1,21 @@
+{
+  "id": "moroland-1.20.1",
+  "name": "Moroland",
+  "description": "Serveur Minecraft moddé Moroland (Forge 1.20.1).",
+  "address": "151.242.159.2:2711",
+  "discord": { "shortId": "Moroland", "largeImageText": "Moroland", "largeImageKey": "seal-circle" },
+  "minecraftVersion": "1.20.1",
+  "mainServer": true,
+  "autoconnect": true,
+  "javaOptions": {
+    "supported": ">=21",
+    "suggestedMajor": 21,
+    "distribution": "TEMURIN",
+    "ram": { "recommended": 6144, "minimum": 4096 }
+  },
+  "loader": {
+    "id": "net.minecraftforge:forge:1.20.1-47.4.10",
+    "name": "Minecraft Forge 47.4.10",
+    "url": "https://maven.minecraftforge.net/net/minecraftforge/forge/1.20.1-47.4.10/forge-1.20.1-47.4.10-installer.jar"
+  }
+}
