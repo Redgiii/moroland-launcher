@@ -1,0 +1,51 @@
+appId: 'com.moroland.launcher'
+productName: 'Moroland'
+artifactName: '${productName}-setup-${version}.${ext}'
+
+copyright: 'Copyright © 2026 Moroland. Based on Helios Launcher, Copyright © 2018-2026 Daniel Scalzi (MIT).'
+
+asar: true
+compression: 'maximum'
+
+files:
+  - '!{dist,.gitignore,.vscode,docs,dev-app-update.yml,.nvmrc,eslint.config.mjs,tools,pack,.github}'
+
+extraResources:
+  - 'libraries'
+
+# Windows Configuration
+win:
+  target:
+    - target: 'nsis'
+      arch: 'x64'
+
+# Windows Installer Configuration
+nsis:
+  oneClick: false
+  perMachine: false
+  allowElevation: true
+  allowToChangeInstallationDirectory: true
+
+# macOS Configuration
+mac:
+  target:
+    - target: 'dmg'
+      arch:
+        - 'x64'
+        - 'arm64'
+  artifactName: '${productName}-setup-${version}-${arch}.${ext}'
+  category: 'public.app-category.games'
+
+# Linux Configuration
+linux:
+  target: 'AppImage'
+  maintainer: 'Moroland'
+  vendor: 'Moroland'
+  synopsis: 'Moroland Minecraft Launcher'
+  description: 'Launcher for the Moroland modded Minecraft server. Mods, configurations and updates are handled automatically.'
+  category: 'Game'
+
+
+directories:
+  buildResources: 'build'
+  output: 'dist'

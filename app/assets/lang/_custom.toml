@@ -1,0 +1,21 @@
+# Custom Language File for Launcher Customizer
+
+[ejs.app]
+title = "Moroland"
+
+[ejs.landing]
+mediaGitHubURL = "https://github.com/Redgiii/moroland-launcher"
+mediaXURL = "#"
+mediaInstagramURL = "#"
+mediaYouTubeURL = "#"
+# TODO: remplacer par le lien d'invitation Discord de Moroland.
+mediaDiscordURL = "#"
+
+[ejs.settings]
+sourceGithubLink = "https://github.com/Redgiii/moroland-launcher"
+supportLink = "https://github.com/Redgiii/moroland-launcher/issues"
+
+[ejs.welcome]
+welcomeHeader = "BIENVENUE À MOROLAND"
+welcomeDescription = "Moroland est un serveur Minecraft moddé. Ce launcher installe Java, Forge et tous les mods à ta place, puis les met à jour automatiquement. Connecte-toi avec ton compte Microsoft et lance le jeu."
+welcomeDescCTA = "Quelques clics et tu es en jeu."
