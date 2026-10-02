@@ -7,19 +7,20 @@
  *                                                                             *
  ******************************************************************************/
 
+/* Moroland: free fonts (SIL OFL). The legacy family names are kept so the rest of the CSS still works. */
 @font-face {
     font-family: 'Avenir Book';
-    src: url('../fonts/Avenir-Book.ttf');
+    src: url('../fonts/Manrope-400.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Avenir Medium';
-    src: url('../fonts/Avenir-Medium.ttf');
+    src: url('../fonts/Manrope-600.woff2') format('woff2');
 }
 
 @font-face {
     font-family: 'Ringbearer';
-    src: url('../fonts/Ringbearer.ttf');
+    src: url('../fonts/Bricolage-800.woff2') format('woff2');
 }
 
 /*******************************************************************************
@@ -3965,4 +3966,38 @@ input:checked + .toggleSwitchSlider:before {
 /* Class which is applied when the spinner image is spinning. */
 .rotating {
     animation: rotating 10s linear infinite;
+}
+
+/*******************************************************************************
+ *                                                                             *
+ * Moroland theme (amber accent, dark UI)                                      *
+ *                                                                             *
+ ******************************************************************************/
+
+:root {
+    --moroland-amber: #E8A33D;
+    --moroland-amber-dark: #C98626;
+    --moroland-dark: #14100D;
+}
+
+#launch_button {
+    color: var(--moroland-amber) !important;
+}
+
+#launch_button:hover,
+#launch_button:focus {
+    text-shadow: 0px 0px 20px var(--moroland-amber) !important;
+}
+
+#launch_progress::-webkit-progress-value {
+    background: var(--moroland-amber) !important;
+}
+
+.settingsNavItem[selected] {
+    color: var(--moroland-amber) !important;
+}
+
+::selection {
+    background: var(--moroland-amber);
+    color: var(--moroland-dark);
 }
