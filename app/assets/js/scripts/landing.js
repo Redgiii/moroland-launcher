@@ -30,6 +30,7 @@ const {
 // Internal Requirements
 const DiscordWrapper          = require('./assets/js/discordwrapper')
 const ProcessBuilder          = require('./assets/js/processbuilder')
+const ForgeInstaller          = require('./assets/js/forgeinstaller')
 
 // Launch Elements
 const launch_content          = document.getElementById('launch_content')
@@ -477,6 +478,30 @@ async function dlAsync(login = true) {
     setLaunchDetails(Lang.queryJS('landing.dlAsync.pleaseWait'))
     toggleLaunchArea(true)
     setLaunchPercentage(0, 100)
+
+    // Moroland: install Forge locally with the official installer (first launch, or after a Forge update).
+    // This must run before the file validation, which expects the Forge version json to exist.
+    try {
+        const forgeModule = serv.rawServer.modules.find(m => m.type === 'ForgeHosted')
+        if(forgeModule != null) {
+            const javaExe = ConfigManager.getJavaExecutable(serv.rawServer.id)
+            const forgeInfo = ForgeInstaller.forgeInfo(serv.rawServer.minecraftVersion, forgeModule)
+            if(!(await ForgeInstaller.isForgeInstalled(ConfigManager.getCommonDirectory(), forgeInfo.versionId))) {
+                setLaunchDetails(Lang.queryJS('landing.dlAsync.installingForge'))
+                await ForgeInstaller.ensureForge({
+                    commonDir: ConfigManager.getCommonDirectory(),
+                    javaExe,
+                    mcVersion: serv.rawServer.minecraftVersion,
+                    rawModule: forgeModule,
+                    log: msg => { if(msg) { loggerLaunchSuite.info('[ForgeInstaller] ' + msg) } }
+                })
+            }
+        }
+    } catch(err) {
+        loggerLaunchSuite.error('Forge installation failed.', err)
+        showLaunchFailure(Lang.queryJS('landing.dlAsync.errorDuringLaunchTitle'), Lang.queryJS('landing.dlAsync.forgeInstallFailed'))
+        return
+    }
 
     const fullRepairModule = new FullRepair(
         ConfigManager.getCommonDirectory(),

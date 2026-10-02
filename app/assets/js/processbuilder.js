@@ -9,6 +9,7 @@ const os                    = require('os')
 const path                  = require('path')
 
 const ConfigManager            = require('./configmanager')
+const { forgeLibraries }       = require('./forgeinstaller')
 
 const logger = LoggerUtil.getLogger('ProcessBuilder')
 
@@ -847,6 +848,10 @@ class ProcessBuilder {
                 }
             }
         }
+
+        // Moroland: Forge is installed locally by the official installer, so its libraries come from
+        // the Forge version json instead of the distribution index.
+        libs = {...libs, ...forgeLibraries(this.modManifest, this.libPath)}
 
         //Check for any libraries in our mod list.
         for(let i=0; i<mods.length; i++){

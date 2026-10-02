@@ -63,14 +63,32 @@ export function overrideModules(overridesDir, baseUrl, include = ['config', 'mod
     return files.map(f => fileModule(relative(overridesDir, f), readFileSync(f), baseUrl))
 }
 
-export function buildDistribution({ server, resolved, overrides, version = '1.0.0' }) {
-    const { loader, ...rest } = server
-    const loaderModule = {
-        id: loader.id,
+// ForgeHosted artifact = official universal jar (installed by the Forge installer on the player's machine).
+// The VersionManifest submodule points to the version json written by that installer.
+export function forgeModule(loader) {
+    const [group, artifact, version] = loader.id.split(':')
+    const [mc, forge] = version.split('-')
+    const universalUrl = loader.url.replace(/-installer\.jar$/, '-universal.jar')
+    const artifactOut = { size: loader.size ?? 0, url: universalUrl }
+    if (loader.md5) artifactOut.MD5 = loader.md5
+    return {
+        id: `${group}:${artifact}:${version}:universal`,
         name: loader.name,
         type: 'ForgeHosted',
-        artifact: { size: 0, url: loader.url }
+        artifact: artifactOut,
+        subModules: [{
+            id: `${mc}-forge-${forge}`,
+            name: `${loader.name} (version manifest)`,
+            type: 'VersionManifest',
+            // Never downloaded: the file exists once the installer has run.
+            artifact: { size: 0, url: loader.url }
+        }]
     }
+}
+
+export function buildDistribution({ server, resolved, overrides, version = '1.0.0' }) {
+    const { loader, ...rest } = server
+    const loaderModule = forgeModule(loader)
     const mods = resolved.filter(r => !r.blocked).map(modModule)
     return {
         version,

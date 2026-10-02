@@ -202,6 +202,8 @@ errorDuringFileVerificationTitle = "Erreur lors de la vérification des fichiers
 downloadingFiles = "Téléchargement des fichiers.."
 errorDuringFileDownloadTitle = "Erreur lors du téléchargement des fichiers"
 preparingToLaunch = "Préparation du lancement.."
+installingForge = "Installation de Forge (premier lancement, 1 à 3 minutes).."
+forgeInstallFailed = "Forge n'a pas pu être installé. Vérifie ta connexion internet et ton installation de Java, puis réessaie. Détails dans la console (Ctrl+Shift+I)."
 launchingGame = "Lancement du jeu.."
 launchWrapperNotDownloaded = "Le fichier principal, LaunchWrapper, ne s'est pas téléchargé correctement. Le jeu ne peut donc pas se lancer.<br><br>Pour régler le problème, désactive temporairement ton antivirus et relance le jeu.<br><br>Si tu as un peu de temps, <a href=\"https://github.com/dscalzi/HeliosLauncher/issues\">ouvre un ticket</a> pour nous dire quel antivirus tu utilises. Nous le contacterons pour essayer d'arranger les choses."
 doneEnjoyServer = "Terminé. Bon jeu sur le serveur !"
